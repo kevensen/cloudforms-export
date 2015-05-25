@@ -26,6 +26,6 @@ Note: This requires CFME 5.3 or better.
 10. Create a button group named “Export” under “VM and Instance”
 11. Create three buttons
  
- a. “Export for RHEV”  —> System/Process/Request Request—>Export
- b. “Export for VMware” —> System/Process/Request Request—>ExportVmdk
- c. “Export for OpenStack” —> System/Process/Request Request—>ExportQcow2
+ i. “Export for RHEV”  —> System/Process/Request Request—>Export
+ ii. “Export for VMware” —> System/Process/Request Request—>ExportVmdk
+ iii. “Export for OpenStack” —> System/Process/Request Request—>ExportQcow2
