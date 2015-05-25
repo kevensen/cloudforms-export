@@ -1,0 +1,213 @@
+---
+object_type: class
+version: 1.0
+object:
+  attributes:
+    description: 
+    display_name: 
+    name: Export
+    type: 
+    inherits: 
+    visibility: 
+    owner: 
+  schema:
+  - field:
+      aetype: attribute
+      name: export_domain
+      display_name: 
+      datatype: string
+      priority: 1
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: 
+      on_exit: 
+      on_error: 
+      max_retries: 
+      max_time: 
+  - field:
+      aetype: state
+      name: PreFlight
+      display_name: 
+      datatype: string
+      priority: 2
+      owner: 
+      default_value: /POC/Infrastructure/VM/Export/Methods/pre_flight
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: tag_status(status => 'beginning_preflight')
+      on_exit: tag_status(status => 'passed_preflight')
+      on_error: tag_status(status => 'failed_preflight')
+      max_retries: 
+      max_time: 
+  - field:
+      aetype: state
+      name: Export
+      display_name: 
+      datatype: string
+      priority: 3
+      owner: 
+      default_value: /POC/Infrastructure/VM/Export/Methods/export
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: tag_status(status => 'beginning_export')
+      on_exit: tag_status(status => 'completed_export')
+      on_error: tag_status(status => 'failed_export')
+      max_retries: 
+      max_time: 
+  - field:
+      aetype: state
+      name: TagJobID
+      display_name: 
+      datatype: string
+      priority: 4
+      owner: 
+      default_value: /POC/Infrastructure/VM/Export/Methods/tag_with_job
+      substitute: true
+      message: create
+      visibility: 
+      collect: ''
+      scope: 
+      description: 
+      condition: 
+      on_entry: tag_status(status => 'tagging_with_job')
+      on_exit: tag_status(status => 'tagged_with_job')
+      on_error: 
+      max_retries: ''
+      max_time: 
+  - field:
+      aetype: state
+      name: CheckStatus
+      display_name: 
+      datatype: string
+      priority: 5
+      owner: 
+      default_value: /POC/Infrastructure/VM/Export/Methods/export_status
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: tag_status(status => 'checking_export')
+      on_exit: tag_status(status => 'still_exporting')
+      on_error: 
+      max_retries: '30'
+      max_time: 
+  - field:
+      aetype: state
+      name: ClearJobID
+      display_name: 
+      datatype: string
+      priority: 6
+      owner: 
+      default_value: /POC/Infrastructure/VM/Export/Methods/clear_job_tags
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: tag_status(status => 'clearing_job_tags')
+      on_exit: tag_status(status => 'cleared_job_tags')
+      on_error: 
+      max_retries: 
+      max_time: 
+  - field:
+      aetype: state
+      name: MountExports
+      display_name: 
+      datatype: string
+      priority: 7
+      owner: 
+      default_value: /POC/Infrastructure/VM/Export/Methods/mount_exports
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: tag_status(status => 'mounting_export_dir')
+      on_exit: tag_status(status => 'mounted_export_dir')
+      on_error: 
+      max_retries: 
+      max_time: 
+  - field:
+      aetype: state
+      name: CreateUserDirectory
+      display_name: 
+      datatype: string
+      priority: 8
+      owner: 
+      default_value: /POC/Infrastructure/VM/Export/Methods/mkdir_exports_user
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: tag_status(status => 'creating_user_exports_dir')
+      on_exit: tag_status(status => 'created_user_exports_dir')
+      on_error: 
+      max_retries: 
+      max_time: 
+  - field:
+      aetype: state
+      name: Convert
+      display_name: 
+      datatype: string
+      priority: 9
+      owner: 
+      default_value: /POC/Infrastructure/VM/Export/Methods/create_ova
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: tag_status(status => 'creating_ova_file')
+      on_exit: tag_status(status => 'created_ova_file')
+      on_error: 
+      max_retries: 
+      max_time: 
+  - field:
+      aetype: state
+      name: DeleteExportedVM
+      display_name: 
+      datatype: string
+      priority: 10
+      owner: 
+      default_value: /POC/Infrastructure/VM/Export/Methods/delete_vm
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: tag_status(status => 'deleteing_vm_from_ex_domain')
+      on_exit: tag_status(status => 'export_complete')
+      on_error: 
+      max_retries: 
+      max_time: 

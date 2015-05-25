@@ -1,0 +1,12 @@
+---
+object_type: instance
+version: 1.0
+object:
+  attributes:
+    display_name: 
+    name: tag_with_job
+    inherits: 
+    description: 
+  fields:
+  - meth1:
+      value: tag_with_job
