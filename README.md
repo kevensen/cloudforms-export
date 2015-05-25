@@ -22,7 +22,6 @@ Note: This requires CFME 5.3 or better.
 6. Upload the archive
 7. Navigate to “Automate” —> “Explorer”
 8. Ensure the POC domain is enabled
-
 9. Navigate to “Automate” —> “Customization” and the “Buttons” accordionan on the left
 10. Create a button group named “Export” under “VM and Instance”
 11. Create three buttons
