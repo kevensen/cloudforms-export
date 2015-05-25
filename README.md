@@ -8,7 +8,9 @@ This code enables the export of a VM from RHEV to another format.  In this scena
 5. Deletes the VM from the export storage domain
 
 Note: This requires CFME 5.3 or better.
+
 Note2: You must install qemu-img on your CloudForms appliance
+
 Note3: This code mounts the export storage domain as NFS
 
 ###Obtain Automate Code
