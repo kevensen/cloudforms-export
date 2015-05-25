@@ -9,8 +9,23 @@ This code enables the export of a VM from RHEV to another format.  In this scena
 
 Note: This requires CFME 5.3 or better.
 
+###Obtain Automate Code
+1. Clone repository
+2. Compress the POC folder as a ZIP archive
+
 ###Integration
 1. Install and configure CloudForms
 2. Login
 3. Navigate to “Automate” —> Import/Export
-4. 
+4. Click browse
+5. Navigate to the zipped archive
+6. Upload the archive
+7. Navigate to “Automate” —> “Explorer”
+8. Ensure the POC domain is enabled
+
+9. Navigate to “Automate” —> “Customization” and the “Buttons” accordionan on the left
+10. Create a button group named “Export” under “VM and Instance”
+11. Create three buttons
+    a. “Export for RHEV”  —> System/Process/Request Request—>Export
+    b. “Export for VMware” —> System/Process/Request Request—>ExportVmdk
+    c. “Export for OpenStack” —> System/Process/Request Request—>ExportQcow2
